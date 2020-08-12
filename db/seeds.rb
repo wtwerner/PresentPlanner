@@ -31,3 +31,5 @@ end
         img_url: Faker::Internet.domain_name
     )
 end
+
+puts "Seeded!"
