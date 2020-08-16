@@ -1,0 +1,33 @@
+<% if Helpers.is_logged_in?(session) %>
+<%= @error %>
+
+<h3>Create a new list</h3><br>
+
+    <form action='/lists' method="post">
+    
+        <div>
+            <label for="name">List Name:</label>
+            <input id='name' type='text' name='name'>
+        </div>
+
+        <div>
+            <label for='recipient'>Recipient:</label>
+            <select name='recipient' id='recipient'>
+                <% @recipients.each do |recipient| %>
+                    <option value='<%= recipient.name %>'><%= recipient.name %></option>
+                <% end %>
+            </select>
+        </div>
+
+        <div>
+            <label for="birth_month">Event Date:</label>
+            <input name='date_of_event' type='date' id='date_of_event'>
+        </div><br>
+
+        <div><input class="btn btn-primary" type="submit" value="Create List"></div>
+
+    </form>
+
+  <% else %>
+      <h1>You Must Be logged in to create list.</h1>
+  <% end %>
