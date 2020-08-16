@@ -4,9 +4,6 @@ class UsersController < ApplicationController
       if !Helpers.is_logged_in?(session)
           erb :'/users/signup'
       else
-          puts session
-          puts Helpers.is_logged_in?(session)
-          puts session[:user_id]
           redirect to '/recipients'
       end 
     end
