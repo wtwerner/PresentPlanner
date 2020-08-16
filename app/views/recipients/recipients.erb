@@ -1,7 +1,9 @@
 <% if @user.recipients.empty? %>
-    <a href="/recipients/new">New Recipient</a>
+    <a href="/recipients/new">Create a new recipient</a>
 <% else %>
 <% @user.recipients.each do |recipient| %>
-    <p><%= recipient.name %></p>    
+    <p><a href="/recipients/<%= recipient.id %>"><%= recipient.name %></a></p>    
 <% end %> 
+<br><br>
+<a href="/recipients/new">Create a new recipient</a>
 <% end %> 
