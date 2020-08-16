@@ -26,14 +26,14 @@ class UsersController < ApplicationController
     
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect '/account'
+        redirect '/recipients'
       else
         redirect '/failure'
       end
     end
 
-    get '/account' do
-      erb :'/users/account'
+    get '/recipients' do
+      erb :'/recipients/recipients'
     end
     
 end
