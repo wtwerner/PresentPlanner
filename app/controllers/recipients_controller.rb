@@ -35,13 +35,13 @@ class RecipientsController < ApplicationController
         end 
     end
 
-    get '/recipients/:id' do
-        if Helpers.is_logged_in?(session)
-            @recipient = Recipient.find_by_id(params[:id])
-            erb :'/recipients/show_recipient'
+    get '/recipients/:id/edit' do 
+        @recipient = Recipient.find_by_id(params[:id])
+        if Helpers.is_logged_in?(session) && Helpers.current_user(session) == @recipient.user
+            erb :'/recipients/edit'
         else 
             redirect to '/login'
-        end  
+        end 
     end 
 
 end
