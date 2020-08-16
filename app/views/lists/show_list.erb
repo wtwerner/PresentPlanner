@@ -1,0 +1,9 @@
+Name: <%= @list.name %><br>
+Recipient: <%= @list.recipient.name %><br>
+Date: <%= @list.event_date %>
+
+<form onsubmit="return confirm('Are you sure you want to delete <%= @list.name %>? This can not be undone.')" method="post" action="/lists/<%=@list.id%>/delete">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input id="submit" type="submit" value="Delete List">
+</form><br><br>
+<a href="/lists/<%=@list.id%>/edit">Edit List</a>

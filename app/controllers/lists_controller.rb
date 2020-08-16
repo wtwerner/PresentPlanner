@@ -14,7 +14,8 @@ class ListsController < ApplicationController
             if params[:name] == ""
                 redirect to '/lists/new'
             else 
-                @list = List.new(params)
+                @list = List.new(name: params[:name], recipient: Recipient.find_by_name(params[:recipient]), event_date: params[:event_date])
+                puts Recipient.find_by_name(params[:recipient])
                 if @list.save
                     redirect to "/lists/#{@list.id}"
                 else 
@@ -25,5 +26,14 @@ class ListsController < ApplicationController
             redirect to '/login'
         end 
     end
+
+    get '/lists/:id' do
+        if Helpers.is_logged_in?(session)  
+            @list = List.find_by_id(params[:id])
+            erb :'/lists/show_list'
+        else 
+            redirect to '/login'
+        end  
+    end 
 
 end
