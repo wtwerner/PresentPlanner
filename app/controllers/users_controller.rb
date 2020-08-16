@@ -31,9 +31,5 @@ class UsersController < ApplicationController
         redirect '/failure'
       end
     end
-
-    get '/recipients' do
-      erb :'/recipients/recipients'
-    end
     
 end
