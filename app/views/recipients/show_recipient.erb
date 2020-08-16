@@ -3,7 +3,7 @@ Name: <%= @recipient.name %><br>
 Relationship: <%= @recipient.relationship %><br>
 Birthday: <%= Date::MONTHNAMES[@recipient.birth_month] %> <%= @recipient.birth_day %>
 
-<form method="post" action="/recipients/<%=@recipient.id%>/delete">
+<form onsubmit="return confirm('Are you sure you want to delete <%= @recipient.name %>? This can not be undone.')" method="post" action="/recipients/<%=@recipient.id%>/delete">
     <input type="hidden" id="hidden" name="_method" value="delete">
     <input id="submit" type="submit" value="Delete Recipient">
 </form><br><br>
