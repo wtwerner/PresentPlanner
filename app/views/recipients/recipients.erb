@@ -1,5 +1,5 @@
 <% if @user.recipients.empty? %>
-    <a href="/">New Recipient</a>
+    <a href="/recipients/new">New Recipient</a>
 <% else %>
 <% @user.recipients.each do |recipient| %>
     <p><%= recipient.name %></p>    

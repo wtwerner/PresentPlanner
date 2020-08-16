@@ -10,7 +10,11 @@ class RecipientsController < ApplicationController
     end
 
     get '/recipients/new' do
-        erb :'recipients/new'
+        if Helpers.is_logged_in?(session)
+            erb :'recipients/new'
+        else
+            redirect to '/login'   
+        end 
     end
 
 end

@@ -1,0 +1,42 @@
+<% if Helpers.is_logged_in?(session) %>
+<%= @error %>
+
+<h3>Add a new Recipient</h3>
+
+  <form action='/recipients' method="post">
+    
+    <div>
+        <label for="name">Name:</label>
+        <input id='name' type='text' name='name'>
+    </div>
+
+    <div>
+        <label for="relationship">Relationship:</label>
+        <input id='relationship' type='text' name='relationship'>
+    </div>
+
+    <div>
+        <label for="birth_day">Birth Day:</label>
+        <select name='birth_day' id='birth_day'>
+            <% 31.times do |i| %>
+                <option value="<%= i+1 %>"><%= i+1 %></option>
+            <% end %>
+        </select>
+    </div>
+
+    <div>
+        <label for="birth_month">Birth Month:</label>
+        <select name='birth_month' id='birth_month'>
+            <% 12.times do |i| %>
+                <option value="<%= i+1 %>"><%= Date::MONTHNAMES[i+1] %></option>
+            <% end %>
+        </select>
+    </div>
+    <br>
+    <div><input class="btn btn-primary" type="submit" value="submit"></div>
+
+  </form>
+
+  <% else %>
+      <h1> You Must Be Logged in to Make Tweets </h1>
+  <% end %>
