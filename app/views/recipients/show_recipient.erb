@@ -1,1 +1,10 @@
-SHOW RECIPIENT
+<b>
+Name: <%= @recipient.name %><br>
+Relationship: <%= @recipient.relationship %><br>
+Birthday: <%= Date::MONTHNAMES[@recipient.birth_month] %> <%= @recipient.birth_day %>
+
+<form method="post" action="/recipients/<%=@recipient.id%>/delete">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input id="submit" type="submit" value="Delete Recipient">
+</form><br><br>
+<a href="/recipients/<%=@recipient.id%>/edit">Edit Recipient</a>
