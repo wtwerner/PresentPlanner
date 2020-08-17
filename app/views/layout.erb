@@ -15,12 +15,13 @@
   </head>
   <body>
     <div class="wrapper">
-
+        <img src="https://img.icons8.com/fluent/48/000000/gift--v2.png"/>
         <%= yield %>
 
       <footer class="branding">
         <p style="text-align:left;">
           <small>&copy; 2020 <strong>PresentPlanner</strong></small>
+          <small><a href="https://icons8.com/icon/9M46Gd8aUIUY/gift">Gift icon by Icons8</a></small>
         <% if @skip_login_logout_footer %>    
           <% yield %>  
         <% elsif Helpers.is_logged_in?(session) %>
