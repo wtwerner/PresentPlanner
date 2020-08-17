@@ -1,5 +1,14 @@
 class ListsController < ApplicationController
     
+    get '/lists' do
+        if Helpers.is_logged_in?(session)
+            @recipients = Recipient.all
+            erb :'lists/lists'
+        else
+            redirect to '/login'   
+        end  
+    end
+
     get '/lists/new' do
         if Helpers.is_logged_in?(session)
             @recipients = Recipient.all

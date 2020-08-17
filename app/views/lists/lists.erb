@@ -1,0 +1,6 @@
+<% @recipients.each do |recipient| %>
+    <h4><%= recipient.name %></h4>
+        <ul><% recipient.lists.each do |list| %>
+            <li><a href='/lists/<%= list.id %>'><%= list.name %></a></li>
+        <% end %></ul><br>
+<% end %>
