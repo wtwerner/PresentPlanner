@@ -55,4 +55,16 @@ class ListsController < ApplicationController
         end 
     end 
 
+    delete '/lists/:id/delete' do 
+        if Helpers.is_logged_in?(session)
+            @list = List.find_by_id(params[:id])
+            if @list && @list.recipient.user == Helpers.current_user(session)
+                @list.delete
+            end  
+            redirect to '/lists'
+        else 
+            redirect to '/login'
+        end 
+    end   
+
 end
