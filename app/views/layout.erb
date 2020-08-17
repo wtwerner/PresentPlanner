@@ -19,13 +19,15 @@
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>PresentPlanner</strong></small> 
+        <p style="text-align:left;">
+          <small>&copy; 2020 <strong>PresentPlanner</strong></small>
         <% if @skip_login_logout_footer %>    
           <% yield %>  
         <% elsif Helpers.is_logged_in?(session) %>
-          <a href="/logout">Log Out</a>
+          <span style="float:right;">Welcome <%= Helpers.current_user(session).email %></span><br>
+          <span style="float:right;"><a href="/logout">Log Out</a></span>
         <% else %>
-          <a href='/login'>Log In</a>
+          <span style="float:right;"><a href="/login">Log In</a></span>
         <% end %>
       </footer>
     </div>
