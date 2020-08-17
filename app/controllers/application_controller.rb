@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @session = session
+    @skip_login_logout_footer = true
     erb :index
   end
 end
