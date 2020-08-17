@@ -45,4 +45,14 @@ class ListsController < ApplicationController
         end  
     end 
 
+    get '/lists/:id/edit' do 
+        @list = List.find_by_id(params[:id])
+        @recipients = Recipient.all
+        if Helpers.is_logged_in?(session) && Helpers.current_user(session) == @list.recipient.user
+            erb :'/lists/edit'
+        else 
+            redirect to '/login'
+        end 
+    end 
+
 end
