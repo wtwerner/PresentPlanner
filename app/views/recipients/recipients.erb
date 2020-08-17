@@ -5,5 +5,7 @@
     <p><a href="/recipients/<%= recipient.id %>"><%= recipient.name %></a></p>    
 <% end %> 
 <br><br>
-<a href="/recipients/new">Create a new recipient</a>
+<form action="/recipients/new" style="display:inline-block">
+<input action="/login" type="submit" value=" Create New Recipient "/>
+</form>   
 <% end %> 
