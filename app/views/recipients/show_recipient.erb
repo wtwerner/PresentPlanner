@@ -1,10 +1,13 @@
 <b>
 Name: <%= @recipient.name %><br>
 Relationship: <%= @recipient.relationship %><br>
-Birthday: <%= Date::MONTHNAMES[@recipient.birth_month] %> <%= @recipient.birth_day %>
+Birthday: <%= Date::MONTHNAMES[@recipient.birth_month] %> <%= @recipient.birth_day %><br><br>
+
+<form action="/recipients/<%=@recipient.id%>/edit">
+    <input type="submit" value="Edit Recipient" />
+</form>
 
 <form onsubmit="return confirm('Are you sure you want to delete <%= @recipient.name %>? This can not be undone.')" method="post" action="/recipients/<%=@recipient.id%>/delete">
     <input type="hidden" id="hidden" name="_method" value="delete">
     <input id="submit" type="submit" value="Delete Recipient">
-</form><br><br>
-<a href="/recipients/<%=@recipient.id%>/edit">Edit Recipient</a>
+</form>
