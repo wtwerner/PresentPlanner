@@ -1,8 +1,14 @@
-<b>
-Name: <%= @recipient.name %><br>
+<h3><%= @recipient.name %></h3>
+<div>
 Relationship: <%= @recipient.relationship %><br>
 Birthday: <%= Date::MONTHNAMES[@recipient.birth_month] %> <%= @recipient.birth_day %><br><br>
-
+</div>
+<h4>Lists:</h4>
+<div>
+<ul><% @recipient.lists.each do |list| %>
+    <li><a href='/lists/<%= list.id %>'><%= list.name %></a></li>
+<% end %></ul><br>
+</div>
 <form action="/recipients/<%=@recipient.id%>/edit">
     <input type="submit" value="Edit Recipient" />
 </form>
