@@ -10,8 +10,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    if Helpers.is_logged_in?(session)
+      redirect '/recipients'
+    else
     @session = session
     @skip_login_logout_footer = true
     erb :index
+    end
   end
 end
