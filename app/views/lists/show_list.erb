@@ -1,6 +1,8 @@
-Name: <%= @list.name %><br>
-Recipient: <%= @list.recipient.name %><br>
-Date: <%= @list.event_date %><br><br>
+<h2><%= @list.name %> — <%= @list.recipient.name %> — <%= @list.event_date %></h2>
+
+<form action="/gifts/new">
+    <input type="submit" value=" New Gift " />
+</form>
 
 <form action="/lists/<%=@list.id%>/edit">
     <input type="submit" value=" Edit List " />
