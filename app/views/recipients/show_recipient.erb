@@ -8,12 +8,21 @@ Birthday: <%= Date::MONTHNAMES[@recipient.birth_month] %> <%= @recipient.birth_d
 <ul><% @recipient.lists.each do |list| %>
     <li><a href='/lists/<%= list.id %>'><%= list.name %></a></li>
 <% end %></ul><br>
-</div>
-<form action="/recipients/<%=@recipient.id%>/edit">
-    <input type="submit" value="Edit Recipient" />
-</form>
+</div><br>
 
+<div>
+<form action="/lists/new">
+    <input type="submit" value="New List"/>
+</form>
+</div>
+<div>
+<form action="/recipients/<%=@recipient.id%>/edit">
+    <input type="submit" value="Edit Recipient"/>
+</form>
+</div>
+<div>
 <form onsubmit="return confirm('Are you sure you want to delete <%= @recipient.name %>? This can not be undone.')" method="post" action="/recipients/<%=@recipient.id%>/delete">
     <input type="hidden" id="hidden" name="_method" value="delete">
     <input id="submit" type="submit" value="Delete Recipient">
 </form>
+</div>
