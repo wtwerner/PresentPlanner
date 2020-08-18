@@ -23,7 +23,14 @@ class GiftsController < ApplicationController
             if params[:name] == ""
                 redirect to '/gifts/new'
             else 
-                @gift = Gift.new(params)
+                @gift = Gift.new(
+                    name: params[:name], 
+                    price: params[:price], 
+                    url: params[:url],
+                    description: params[:description],
+                    note: params[:note],
+                    recipient_id: Recipient.find_by_name(params[:recipient]).id
+                )
                 if @gift.save
                     redirect to "/gifts/#{@gift.id}"
                 else 

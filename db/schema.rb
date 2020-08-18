@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20200812020140) do
     t.text    "description"
     t.text    "note"
     t.integer "list_id"
+    t.integer "recipient_id"
   end
 
   create_table "lists", force: :cascade do |t|
