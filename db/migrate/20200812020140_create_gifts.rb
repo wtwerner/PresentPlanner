@@ -7,6 +7,7 @@ class CreateGifts < ActiveRecord::Migration
       t.text :description
       t.text :note
       t.integer :list_id
+      t.integer :recipient_id
     end
   end
 end
