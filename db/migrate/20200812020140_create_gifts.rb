@@ -3,8 +3,7 @@ class CreateGifts < ActiveRecord::Migration
     create_table :gifts do |t|
       t.string :name
       t.integer :price
-      t.text :gift_url
-      t.text :img_url
+      t.string :url
       t.text :description
       t.text :note
       t.integer :list_id
