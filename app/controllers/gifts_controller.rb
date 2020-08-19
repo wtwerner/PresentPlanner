@@ -54,7 +54,7 @@ class GiftsController < ApplicationController
     get '/gifts/:id/edit' do 
         @gift = Gift.find_by_id(params[:id])
         @recipients = Recipient.all
-        if Helpers.is_logged_in?(session) && Helpers.current_user(session) == @gift.list.recipient.user
+        if Helpers.is_logged_in?(session) && Helpers.current_user(session) == @gift.recipient.user
             erb :'/gifts/edit'
         else 
             redirect to '/login'
@@ -64,7 +64,7 @@ class GiftsController < ApplicationController
     delete '/gifts/:id/delete' do 
         if Helpers.is_logged_in?(session)
             @gift = Gift.find_by_id(params[:id])
-            if @gift && @gift.list.recipient.user == Helpers.current_user(session)
+            if @gift && @gift.recipient.user == Helpers.current_user(session)
                 @gift.delete
             end  
             redirect to '/gifts'
