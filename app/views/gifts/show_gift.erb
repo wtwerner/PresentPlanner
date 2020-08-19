@@ -1,1 +1,20 @@
-SHOW GIFT
+<h2><%= @gift.name.capitalize %></h2>
+
+<div>
+Recipient: <%= @gift.recipient.name %><br>
+Price: $<%= @gift.price %><br>
+Description: <%= @gift.description %><br>
+Note: <%= @gift.note %><br>
+<a href="<%= @gift.url %>">Visit Website</a>
+</div><br>
+<div>
+<form action="/gifts/<%=@gift.id%>/edit">
+    <input type="submit" value="Edit Gift"/>
+</form>
+</div>
+<div>
+<form onsubmit="return confirm('Are you sure you want to delete <%= @gift.name %>? This can not be undone.')" method="post" action="/gifts/<%=@gift.id%>/delete">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input id="submit" type="submit" value="Delete Gift">
+</form>
+</div>
