@@ -61,6 +61,34 @@ class GiftsController < ApplicationController
         end 
     end 
 
+    patch '/gifts/:id' do
+        if Helpers.is_logged_in?(session)
+            if params[:name] == ""
+                redirect to "/gifts/#{params[:id]}/edit"
+            else
+                @gift = Gift.find_by_id(params[:id])
+                if @gift && @gift.recipient.user == Helpers.current_user(session)
+                if @gift.update(
+                    name: params[:name], 
+                    price: params[:price], 
+                    url: params[:url],
+                    description: params[:description],
+                    note: params[:note],
+                    recipient_id: Recipient.find_by_name(params[:recipient]).id
+                    )
+                redirect to "/gifts/#{@gift.id}"
+            else
+                redirect to "/gifts/#{@gift.id}/edit"
+            end
+            else
+                redirect to '/gifts'
+            end
+        end
+        else
+            redirect to '/login'
+        end
+    end
+
     delete '/gifts/:id/delete' do 
         if Helpers.is_logged_in?(session)
             @gift = Gift.find_by_id(params[:id])
