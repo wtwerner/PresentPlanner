@@ -23,7 +23,11 @@ class ListsController < ApplicationController
             if params[:name] == ""
                 redirect to '/lists/new'
             else 
-                @list = List.new(name: params[:name], recipient: Recipient.find_by_name(params[:recipient]), event_date: params[:event_date])
+                @list = List.new(
+                    name: params[:name], 
+                    recipient: Recipient.find_by_name(params[:recipient]), 
+                    event_date: params[:event_date]
+                )
                 puts Recipient.find_by_name(params[:recipient])
                 if @list.save
                     redirect to "/lists/#{@list.id}"
@@ -54,6 +58,31 @@ class ListsController < ApplicationController
             redirect to '/login'
         end 
     end 
+
+    patch '/lists/:id' do
+        if Helpers.is_logged_in?(session)
+          if params[:name] == ""
+            redirect to "/lists/#{params[:id]}/edit"
+          else
+            @list = List.find_by_id(params[:id])
+            if @list && @list.recipient.user == Helpers.current_user(session)
+              if @list.update(
+                    name: params[:name], 
+                    recipient: Recipient.find_by_name(params[:recipient]), 
+                    event_date: params[:event_date]
+                    )
+                redirect to "/lists/#{@list.id}"
+              else
+                redirect to "/lists/#{@list.id}/edit"
+              end
+            else
+              redirect to '/lists'
+            end
+          end
+        else
+          redirect to '/login'
+        end
+      end
 
     delete '/lists/:id/delete' do 
         if Helpers.is_logged_in?(session)
