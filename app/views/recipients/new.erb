@@ -1,35 +1,29 @@
-<h3>Add a new recipient</h3><br>
-
+<div class="container" style="margin-top: 25px;">
+    <h4>Add a new recipient</h4>
+</div><br>
+<div class="container">
     <form action='/recipients' method="post">
-    
-        <div>
+
             <label for="name">Name:</label>
             <input id='name' type='text' name='name'>
-        </div>
 
-        <div>
             <label for="relationship">Relationship:</label>
             <input id='relationship' type='text' name='relationship'>
-        </div>
 
-        <div>
             <label for="birth_month">Birth Month:</label>
             <select name='birth_month' id='birth_month'>
                 <% 12.times do |i| %>
                     <option value="<%= i+1 %>"><%= Date::MONTHNAMES[i+1] %></option>
                 <% end %>
             </select>
-        </div>
 
-        <div>
             <label for="birth_day">Birth Day:</label>
             <select name='birth_day' id='birth_day'>
                 <% 31.times do |i| %>
                     <option value="<%= i+1 %>"><%= i+1 %></option>
                 <% end %>
-            </select>
-        </div><br>
+            </select><br><br>
 
         <div><input class="btn btn-primary" type="submit" value="Create Recipient"></div>
-
     </form>
+</div>

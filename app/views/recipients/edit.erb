@@ -1,34 +1,37 @@
-<h2>Edit Recipient</h2>
-
-<form action='/recipients/<%=@recipient.id %>' method='post'>
-<input type='hidden' id='hidden' name='_method' value='patch'>
-<div>
-    <label for="name">Name:</label>
-    <input id='name' type='text' name='name' value='<%=@recipient.name%>'>
+<div class="container" style="margin-top: 25px;">    
+    <h2>Edit Recipient</h2>
 </div>
-
 <div>
-    <label for='relationship'>Relationship:</label>
-    <input id='relationship' type='text' name='relationship' value='<%=@recipient.relationship%>'>
+    <div class="container">
+        <form action='/recipients/<%=@recipient.id %>' method='post'>
+        <input type='hidden' id='hidden' name='_method' value='patch'>
+    </div>
+    <div class="container">
+        <label for="name">Name:</label>
+        <input id='name' type='text' name='name' value='<%=@recipient.name%>'>
+    </div>
+    <div class="container">
+        <label for='relationship'>Relationship:</label>
+        <input id='relationship' type='text' name='relationship' value='<%=@recipient.relationship%>'>
+    </div>
+    <div class="container">
+        <label for='birth_month'>Birth Month:</label>
+        <select name='birth_month' id='birth_month'>
+            <% 12.times do |i| %>
+                <option value="<%= i+1 %>" <%= 'selected' if @recipient.birth_month == i+1 %>><%= Date::MONTHNAMES[i+1] %></option>
+            <% end %>
+        </select>
+    </div>
+    <div class="container">
+        <label for='birth_day'>Birth Day:</label>
+        <select name='birth_day' id='birth_day'>
+            <% 31.times do |i| %>
+                <option value="<%= i+1 %>" <%= 'selected' if @recipient.birth_day == i+1 %>><%= i+1 %></option>
+            <% end %>
+        </select>
+    </div>
+    <div class="container">
+        <input class="btn btn-primary" type='submit' value='Submit Changes' style="margin-top: 5px;">
+    </div>
+    </form>
 </div>
-
-<div>
-    <label for='birth_month'>Birth Month:</label>
-    <select name='birth_month' id='birth_month'>
-        <% 12.times do |i| %>
-            <option value="<%= i+1 %>" <%= 'selected' if @recipient.birth_month == i+1 %>><%= Date::MONTHNAMES[i+1] %></option>
-        <% end %>
-    </select>
-</div>
-
-<div>
-    <label for='birth_day'>Birth Day:</label>
-    <select name='birth_day' id='birth_day'>
-        <% 31.times do |i| %>
-            <option value="<%= i+1 %>" <%= 'selected' if @recipient.birth_day == i+1 %>><%= i+1 %></option>
-        <% end %>
-    </select>
-</div>
-<br>
-<div><input type='submit' value='Submit Changes'></div>
-</form>

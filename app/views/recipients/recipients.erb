@@ -1,13 +1,15 @@
-<h2>Recipients</h2>
-<div>
-<% if @user.recipients.empty? %>
-    <a href="/recipients/new">Create a new recipient</a>
-<% else %>
-<% @user.recipients.each do |recipient| %>
-    <p><a href="/recipients/<%= recipient.id %>"><%= recipient.name %></a></p>    
-<% end %> 
-<form action="/recipients/new" style="display:inline-block">
-<input action="/login" type="submit" value="Create New Recipient"/>
-</form>   
+<div class="container" style="margin-top: 25px;">
+    <h2>Recipients</h2>
 </div>
-<% end %> 
+<div class="container">
+    <% if @user.recipients.empty? %>
+        <a href="/recipients/new">Create a new recipient</a>
+    <% else %>
+        <% @user.recipients.each do |recipient| %>
+            <p><a href="/recipients/<%= recipient.id %>"><%= recipient.name %></a></p>    
+        <% end %> 
+    <form action="/recipients/new" style="display:inline-block">
+        <input action="/login" class="btn btn-primary" type="submit" value="Create New Recipient"/>
+    </form>   
+    <% end %> 
+</div>
