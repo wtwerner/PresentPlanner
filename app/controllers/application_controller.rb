@@ -14,7 +14,6 @@ class ApplicationController < Sinatra::Base
       redirect '/recipients'
     else
     @session = session
-    @skip_login_logout_footer = true
     erb :index
     end
   end

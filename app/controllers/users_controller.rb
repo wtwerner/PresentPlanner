@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     end
 
     get '/login' do
-      @skip_login_logout_footer = true
       erb :'/users/login'
     end
 
