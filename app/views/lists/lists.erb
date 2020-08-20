@@ -2,11 +2,11 @@
     <h4>Lists</h4>
 </div><br>
 <div class="container">
-    <% @recipients.each do |recipient| %>
-        <h6><a href="/recipients/<%= recipient.id %>"><%= recipient.name %></a></h6>
-            <% if recipient.lists.empty? %>
-                No lists yet!
-            <% else %>
+    <% if @lists.empty? %>
+        No lists yet!
+    <% else %>
+        <% @recipients.each do |recipient| %>
+            <h6><a href="/recipients/<%= recipient.id %>"><%= recipient.name %></a></h6>
                 <ul><% recipient.lists.each do |list| %>
                     <li><a href='/lists/<%= list.id %>'><%= list.name %></a></li>
                 <% end %></ul><br>
@@ -15,6 +15,6 @@
 </div><br>
 <div class="container">
     <form action="/lists/new" style="display:inline-block">
-    <input class="btn btn-primary" type="submit" value="Create New List" style="margin-top: 5px;"/>
+    <input class="btn btn-primary" type="submit" value="New List" style="margin-top: 5px;"/>
     </form>
 </div>

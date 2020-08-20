@@ -2,6 +2,7 @@ class ListsController < ApplicationController
     
     get '/lists' do
         if Helpers.is_logged_in?(session)
+            @lists = List.all
             @recipients = Recipient.all
             erb :'lists/lists'
         else
