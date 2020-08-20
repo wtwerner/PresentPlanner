@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     post '/signup' do
       user = User.new(:email => params[:email], :password => params[:password])
       if user.save
-        redirect '/login'
+        redirect '/recipients'
       else
         redirect '/failure'
       end
