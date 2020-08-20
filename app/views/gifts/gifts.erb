@@ -1,7 +1,16 @@
-<h2>Gifts</h2>
-<% @gifts.each do |gift| %>
-    <a href="/gifts/<%= gift.id %>"><%= gift.name %></a><br>
-<% end %><br>
-<form action="/gifts/new" style="display:inline-block">
-<input action="/login" type="submit" value="Create New Gift"/>
-</form>
+<div class="container" style="margin-top: 25px;">
+    <h2>Gifts</h2>
+</div>
+<div class="container">
+    <% if @gifts.empty? %>
+        No gifts yet!
+    <% else %>
+        <% @gifts.each do |gift| %>
+            <a href="/gifts/<%= gift.id %>"><%= gift.name %></a><br>
+        <% end %>
+    <% end %>
+</div><br>
+<div class="container">
+    <form action="/gifts/new" style="display:inline-block">
+    <input class="btn btn-primary" action="/login" type="submit" value="Create New Gift" style="margin-top: 5px;"/>
+</div>

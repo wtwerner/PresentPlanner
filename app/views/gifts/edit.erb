@@ -1,34 +1,37 @@
-<h2>Edit Gift</h2>
-
-<form action='/gifts/<%=@gift.id %>' method="post">
-<input type='hidden' id='hidden' name='_method' value='patch'>
-    <div>
-        <label for="name">Name:</label>
-        <input id='name' type='text' name='name' value="<%= @gift.name %>">
-    </div><br>
-    <div>
-        <label for="price">Price:</label>
-        <input id='price' type='text' name='price' value="<%= @gift.price %>">
-    </div><br>
-    <div>
-        <label for="url">URL:</label>
-        <input id='url' type='url' name='url' value="<%= @gift.url %>">
-    </div><br>
-    <div>
-        Description:
-        <textarea id='description' name='description'rows="4" value="<%= @gift.description %>"></textarea>
-    </div><br>
-    <div>
-        Note:
-        <textarea id='note' name='nore'rows="4" value="<%= @gift.note %>"></textarea>
-    </div><br>
-    <div>
-        <label for='recipient'>Recipient:</label>
-        <select name='recipient' id='recipient'>
-            <% @recipients.each do |recipient| %>
-                <option value='<%= recipient.name %>' <%= 'selected' if @gift.recipient == recipient %>><%= recipient.name %></option>
-            <% end %>
-        </select>
-    </div><br>
-    <div><input class="btn btn-primary" type="submit" value="Edit Gift"></div>
-</form>
+<div class="container" style="margin-top: 25px;">
+    <h4>Edit Gift</h4>
+</div><br>
+<div class="container">
+    <form action='/gifts/<%=@gift.id %>' method="post">
+    <input type='hidden' id='hidden' name='_method' value='patch'>
+        <div>
+            <label for="name">Name:</label>
+            <input id='name' type='text' name='name' value="<%= @gift.name %>">
+        </div><br>
+        <div>
+            <label for="price">Price:</label>
+            <input id='price' type='text' name='price' value="<%= @gift.price %>">
+        </div><br>
+        <div>
+            <label for="url">URL:</label>
+            <input id='url' type='url' name='url' value="<%= @gift.url %>">
+        </div><br>
+        <div>
+            Description:
+            <textarea id='description' name='description'rows="4" value="<%= @gift.description %>"></textarea>
+        </div><br>
+        <div>
+            Note:
+            <textarea id='note' name='nore'rows="4" value="<%= @gift.note %>"></textarea>
+        </div><br>
+        <div>
+            <label for='recipient'>Recipient:</label>
+            <select name='recipient' id='recipient'>
+                <% @recipients.each do |recipient| %>
+                    <option value='<%= recipient.name %>' <%= 'selected' if @gift.recipient == recipient %>><%= recipient.name %></option>
+                <% end %>
+            </select>
+        </div><br>
+        <div><input class="btn btn-primary" type="submit" value="Edit Gift"></div>
+    </form>
+</div>
