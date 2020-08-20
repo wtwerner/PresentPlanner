@@ -1,14 +1,14 @@
 <h2><%= @list.name %> — <%= @list.recipient.name %> — <%= @list.event_date %></h2>
 
 <form action="/gifts/new">
-    <input type="submit" value=" New Gift " />
+    <input type="submit" value="New Gift"/>
 </form>
 
 <form action="/lists/<%=@list.id%>/edit">
-    <input type="submit" value=" Edit List " />
+    <input type="submit" value="Edit List"/>
 </form>
 
 <form onsubmit="return confirm('Are you sure you want to delete <%= @list.name %>? This can not be undone.')" method="post" action="/lists/<%=@list.id%>/delete">
     <input type="hidden" id="hidden" name="_method" value="delete">
-    <input id="submit" type="submit" value=" Delete List ">
+    <input id="submit" type="submit" value="Delete List">
 </form>
