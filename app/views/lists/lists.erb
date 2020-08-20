@@ -3,7 +3,7 @@
 </div><br>
 <div class="container">
     <% @recipients.each do |recipient| %>
-        <h6><%= recipient.name %></h6>
+        <h6><a href="/recipients/<%= recipient.id %>"><%= recipient.name %></a></h6>
             <% if recipient.lists.empty? %>
                 No lists yet!
             <% else %>
