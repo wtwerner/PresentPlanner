@@ -1,14 +1,30 @@
-<h2><%= @list.name %> — <%= @list.recipient.name %> — <%= @list.event_date %></h2>
+<div class="container" style="margin-top: 25px;">
+    <h2><%= @list.name %></h2>
+</div>
+<div class="container">
+    <p>For: <%= @list.recipient.name %><br>
+    Date: <%= @list.event_date %></p>
+</div>
+<div class="container">
+    <% if @list.gifts.empty? %>
+        No gifts yet!
+    <% else %>
+        <% @list.gifts.each do |gift| %>
+           <a href='/gifts/<%= gift.id %>'><%= gift.name %></a> 
+        <% end %>
+    <% end %>
+</div><br>
+<div class="container">
+    <form action="/gifts/new">
+        <input class="btn btn-primary" type="submit" value="New Gift" style="margin-top: 5px;"/>
+    </form>
 
-<form action="/gifts/new">
-    <input type="submit" value="New Gift"/>
-</form>
+    <form action="/lists/<%=@list.id%>/edit">
+        <input class="btn btn-primary" type="submit" value="Edit List" style="margin-top: 5px;"/>
+    </form>
 
-<form action="/lists/<%=@list.id%>/edit">
-    <input type="submit" value="Edit List"/>
-</form>
-
-<form onsubmit="return confirm('Are you sure you want to delete <%= @list.name %>? This can not be undone.')" method="post" action="/lists/<%=@list.id%>/delete">
-    <input type="hidden" id="hidden" name="_method" value="delete">
-    <input id="submit" type="submit" value="Delete List">
-</form>
+    <form onsubmit="return confirm('Are you sure you want to delete <%= @list.name %>? This can not be undone.')" method="post" action="/lists/<%=@list.id%>/delete">
+        <input type="hidden" id="hidden" name="_method" value="delete">
+        <input class="btn btn-primary" id="submit" type="submit" value="Delete List" style="margin-top: 5px;">
+    </form>
+</div>

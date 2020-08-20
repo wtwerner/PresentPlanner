@@ -52,7 +52,7 @@ class ListsController < ApplicationController
     get '/lists/:id/edit' do 
         @list = List.find_by_id(params[:id])
         @recipients = Recipient.all
-        if Helpers.is_logged_in?(session) && Helpers.current_user(session) == @list.recipient.user
+        if Helpers.is_logged_in?(session)
             erb :'/lists/edit'
         else 
             redirect to '/login'
@@ -65,7 +65,7 @@ class ListsController < ApplicationController
             redirect to "/lists/#{params[:id]}/edit"
           else
             @list = List.find_by_id(params[:id])
-            if @list && @list.recipient.user == Helpers.current_user(session)
+            if @list
               if @list.update(
                     name: params[:name], 
                     recipient: Recipient.find_by_name(params[:recipient]), 

@@ -1,10 +1,14 @@
-<h2>Lists</h2>
-<% @recipients.each do |recipient| %>
-    <h4><%= recipient.name %></h4>
-        <ul><% recipient.lists.each do |list| %>
-            <li><a href='/lists/<%= list.id %>'><%= list.name %></a></li>
-        <% end %></ul><br>
-<% end %>
-<form action="/lists/new" style="display:inline-block">
-<input action="/login" type="submit" value="Create New List"/>
-</form>   
+<div class="container" style="margin-top: 25px;">
+    <h4>Lists</h4>
+</div>
+<div>
+    <% @recipients.each do |recipient| %>
+        <h4><%= recipient.name %></h4>
+            <ul><% recipient.lists.each do |list| %>
+                <li><a href='/lists/<%= list.id %>'><%= list.name %></a></li>
+            <% end %></ul><br>
+    <% end %>
+    <form action="/lists/new" style="display:inline-block">
+    <input action="/login" type="submit" value="Create New List"/>
+    </form>
+</div>
