@@ -16,21 +16,19 @@ Birthday: <%= Date::MONTHNAMES[@recipient.birth_month] %> <%= @recipient.birth_d
             <% end %></ul><br>
         <% end %>
     </div><br>
+</div>
 
-    <div>
-        <form action="/lists/new">
-            <input class="btn btn-primary" type="submit" value="New List" style="margin-top: 5px;"/>
-        </form>
-    </div>
-    <div>
-        <form action="/recipients/<%=@recipient.id%>/edit">
-            <input class="btn btn-primary" type="submit" value="Edit Recipient" style="margin-top: 5px;"/>
-        </form>
-    </div>
-    <div>
-        <form onsubmit="return confirm('Are you sure you want to delete <%= @recipient.name %>? This can not be undone.')" method="post" action="/recipients/<%=@recipient.id%>/delete">
-            <input type="hidden" id="hidden" name="_method" value="delete">
-            <input class="btn btn-primary" id="submit" type="submit" value="Delete Recipient" style="margin-top: 5px;">
-        </form>
-    </div>
+<div class="container">
+    <form action="/lists/new">
+        <input role="button" class="btn btn-secondary" type="submit" value="New List" style="margin-top: 5px;">
+    </form>
+
+    <form action="/recipients/<%=@recipient.id%>/edit">
+        <input class="btn btn-secondary" type="submit" value="Edit Recipient" style="margin-top: 5px;">
+    </form>
+
+    <form onsubmit="return confirm('Are you sure you want to delete <%= @recipient.name %>? This can not be undone.')" method="post" action="/recipients/<%=@recipient.id%>/delete">
+        <input type="hidden" id="hidden" name="_method" value="delete">
+        <input class="btn btn-secondary" id="submit" type="submit" value="Delete Recipient" style="margin-top: 5px;">
+    </form>
 </div>
