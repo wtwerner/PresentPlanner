@@ -10,10 +10,10 @@
     </div><br>
 <div class="container">
     <form action="/gifts/<%=@gift.id%>/edit">
-        <input class="btn btn-primary" type="submit" value="Edit Gift" style="margin-top: 5px;"/>
+        <input class="btn btn-secondary" type="submit" value="Edit Gift" style="margin-top: 5px;"/>
     </form>
     <form onsubmit="return confirm('Are you sure you want to delete <%= @gift.name %>? This can not be undone.')" method="post" action="/gifts/<%=@gift.id%>/delete">
         <input type="hidden" id="hidden" name="_method" value="delete">
-        <input class="btn btn-primary" id="submit" type="submit" value="Delete Gift" style="margin-top: 5px;">
+        <input class="btn btn-secondary" id="submit" type="submit" value="Delete Gift" style="margin-top: 5px;">
     </form>
 </div>
