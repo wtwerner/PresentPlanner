@@ -16,15 +16,15 @@
 </div><br>
 <div class="container">
     <form action="/gifts/new">
-        <input class="btn btn-primary" type="submit" value="New Gift" style="margin-top: 5px;"/>
+        <input class="btn btn-secondary" type="submit" value="New Gift" style="margin-top: 5px;"/>
     </form>
 
     <form action="/lists/<%=@list.id%>/edit">
-        <input class="btn btn-primary" type="submit" value="Edit List" style="margin-top: 5px;"/>
+        <input class="btn btn-secondary" type="submit" value="Edit List" style="margin-top: 5px;"/>
     </form>
 
     <form onsubmit="return confirm('Are you sure you want to delete <%= @list.name %>? This can not be undone.')" method="post" action="/lists/<%=@list.id%>/delete">
         <input type="hidden" id="hidden" name="_method" value="delete">
-        <input class="btn btn-primary" id="submit" type="submit" value="Delete List" style="margin-top: 5px;">
+        <input class="btn btn-secondary" id="submit" type="submit" value="Delete List" style="margin-top: 5px;">
     </form>
 </div>
