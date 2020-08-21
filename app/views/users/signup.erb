@@ -2,9 +2,17 @@
   <h4>Signup</h4>
 </div>
 <div class="container">
-    <form method="POST" action='/signup'>
-        <input type="text" id="email" name="email" placeholder="Email">
-        <input type="password" id="password" name="password" placeholder="Password">
-        <input class="btn btn-primary" id="submit" type="submit" value="Sign Up">
-    </form> 
+  <form method="POST" action='/signup'>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password" aria-describedby="passwordHelp" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+      <small id="passwordHelp" class="form-text text-muted">Min. 8 characters with 1 number and 1 uppercase.</small>
+    </div>
+    <input class="btn btn-primary" id="submit" type="submit" value="Sign Up">
+  </form>
 </div>

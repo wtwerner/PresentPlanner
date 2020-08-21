@@ -17,4 +17,8 @@ class ApplicationController < Sinatra::Base
     erb :index
     end
   end
+
+  get '/failure' do
+    erb :failure
+  end
 end
