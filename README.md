@@ -20,7 +20,8 @@ PresentPlanner is a Sinatra app that lets users catalog gift ideas in order to h
 
 Try this app in your local environment, clone and run following command inside this project's directory
 
-    $ bundle && bundle exec rake db:migrate
+    $ bundle
+    $ rake db:migrate
 
 Start up local server
 
