@@ -9,6 +9,7 @@
     <% if @list.gifts.empty? %>
         No gifts yet!
     <% else %>
+        <h5>Gift ideas:</h5>
         <% @list.gifts.each do |gift| %>
            <a href='/gifts/<%= gift.id %>'><%= gift.name %></a> 
         <% end %>
