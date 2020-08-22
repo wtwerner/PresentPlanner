@@ -4,14 +4,14 @@ class UsersController < ApplicationController
       if !Helpers.is_logged_in?(session)
           erb :'/users/signup'
       else
-          redirect to '/recipients'
+          redirect to '/home'
       end 
     end
 
     post '/signup' do
       user = User.new(:email => params[:email], :password => params[:password])
       if user.save
-        redirect '/recipients'
+        redirect '/home'
       else
         redirect '/failure'
       end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       user = User.find_by(:email => params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect '/recipients'
+        redirect '/home'
       else
         redirect '/failure'
       end
@@ -39,5 +39,10 @@ class UsersController < ApplicationController
           redirect to '/'
       end 
     end 
+
+    get '/home' do
+      @user = Helpers.current_user(session)
+      erb :'/users/home'
+    end
     
 end
