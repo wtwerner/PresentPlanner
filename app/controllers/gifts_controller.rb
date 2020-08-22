@@ -11,7 +11,7 @@ class GiftsController < ApplicationController
 
     get '/gifts/new' do
         if Helpers.is_logged_in?(session)
-            @recipients = Recipient.all
+            @lists = List.all.order("name ASC")
             erb :'gifts/new'
         else
             redirect to '/login'   
@@ -29,7 +29,7 @@ class GiftsController < ApplicationController
                     url: params[:url],
                     description: params[:description],
                     note: params[:note],
-                    recipient_id: Recipient.find_by_name(params[:recipient]).id
+                    list_id: params[:list_id]
                 )
                 if @gift.save
                     redirect to "/gifts/#{@gift.id}"

@@ -2,7 +2,7 @@
     <h4><%= @gift.name.capitalize %></h4>
 </div><br>
 <div class="container">
-    Recipient: <%= @gift.recipient.name %><br>
+    List: <%= @gift.list.name %> (<%= @gift.list.recipient.name %>)<br>
     Price: $<%= @gift.price %><br>
     Description: <%= @gift.description %><br>
     Note: <%= @gift.note %><br>
