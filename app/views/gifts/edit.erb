@@ -28,7 +28,7 @@
             <label for='recipient'>Recipient:</label>
             <select class="form-control" name='recipient' id='recipient'>
                 <% @recipients.each do |recipient| %>
-                    <option value='<%= recipient.name %>' <%= 'selected' if @gift.recipient == recipient %>><%= recipient.name %></option>
+                    <option value='<%= recipient.name %>' <%= 'selected' if @gift.list.recipient == recipient %>><%= recipient.name %></option>
                 <% end %>
             </select>
         </div>
