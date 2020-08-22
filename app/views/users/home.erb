@@ -1,3 +1,54 @@
 <div class="container"style="margin-top: 25px;">    
     <h2>Welcome, <%= @user.name %>!</h2>
+</div><br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        <h4>Recipients</h4>
+        <% if @user.recipients.all.empty? %>
+            <p>No recipients yet!</p>
+        <% else %>
+            <% @user.recipients.each do |recipient| %>
+                <a href="/recipients/<%= recipient.id %>"><%= recipient.name.capitalize%></a>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="col-sm">
+        <h4>Lists</h4>
+        <% if @user.lists.all.empty? %>
+            <p>No recipients yet!</p>
+        <% else %>
+            <% @user.lists.each do |list| %>
+                <a href="/lists/<%= list.id %>"><%= list.name.capitalize%></a> (<%= list.recipient.name %>)
+            <% end %>
+        <% end %>
+    </div>
+    <div class="col-sm">
+        <h4>Gifts</h4>
+        <% if @user.gifts.all.empty? %>
+            <p>No gifts yet!</p>
+        <% else %>
+            <% @user.gifts.each do |gift| %>
+                <a href="/gifts/<%= gift.id %>"><%= gift.name.capitalize%></a>
+            <% end %>
+        <% end %>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <form action="/recipients/new">
+                <input role="button" class="btn btn-primary" type="submit" value="New Recipient" style="margin-top: 5px;">
+            </form>
+        </div>
+        <div class="col-sm">
+            <form action="/lists/new">
+                <input role="button" class="btn btn-primary" type="submit" value="New List" style="margin-top: 5px;">
+            </form>
+        </div>
+        <div class="col-sm">
+            <form action="/gifts/new">
+                <input role="button" class="btn btn-primary" type="submit" value="New Gift" style="margin-top: 5px;">
+            </form>
+        </div>
+    </div>
 </div>
