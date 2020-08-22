@@ -6,14 +6,14 @@ Relationship: <%= @recipient.relationship %><br>
 Birthday: <%= Date::MONTHNAMES[@recipient.birth_month] %> <%= @recipient.birth_day %><br><br>
 </div>
 <div class="container">
-    <h4>Lists:</h4>
+    <h5>Lists:</h5>
     <div>
         <% if @recipient.lists.empty? %>
             No lists yet!
         <% else %>
-            <ul><% @recipient.lists.each do |list| %>
-                <li><a href='/lists/<%= list.id %>'><%= list.name %></a></li>
-            <% end %></ul><br>
+            <% @recipient.lists.each do |list| %>
+                <a href='/lists/<%= list.id %>'><%= list.name %></a><br>
+            <% end %><br>
         <% end %>
     </div><br>
 </div>
