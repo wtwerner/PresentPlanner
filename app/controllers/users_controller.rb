@@ -42,6 +42,8 @@ class UsersController < ApplicationController
 
     get '/home' do
       @user = Helpers.current_user(session)
+      @ordered_recipients = Recipient.order("name ASC")
+      @ordered_lists = List.order("event_date ASC")
       erb :'/users/home'
     end
     
