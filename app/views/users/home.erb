@@ -1,5 +1,9 @@
-<div class="container"style="margin-top: 25px;">    
-    <h2>Welcome, <%= @user.name %>!</h2>
+<div class="container"style="margin-top: 25px;"> 
+    <% if @user.name == nil %>
+        <h2>Welcome!</h2>
+    <% else %>
+        <h2>Welcome, <%= @user.name %>!</h2>
+    <% end %>
 </div><br>
 <div class="container">
     <div class="row">
@@ -19,7 +23,7 @@
                 <p>No lists yet!</p>
             <% else %>
                 <% @ordered_lists.each do |list| %>
-                    <a href="/lists/<%= list.id %>"><%= list.name.capitalize%></a> (<%= list.recipient.name %>)<br>
+                    <a href="/lists/<%= list.id %>"><%= list.recipient.name.capitalize %> - <%= list.name.capitalize%></a> (<%= list.event_date.strftime("%B %d, %Y") %>)<br>
                 <% end %>
             <% end %>
         </div>
