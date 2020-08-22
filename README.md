@@ -16,7 +16,7 @@ PresentPlanner is a Sinatra app that lets users catalog gift ideas in order to h
 * [Bootstrap v4](https://getbootstrap.com/) - The HTML, CSS, and JavaScript framework
 * HTML5 & CSS
 
-## Development
+## Installation
 
 Try this app in your local environment, clone and run following command inside this project's directory
 
