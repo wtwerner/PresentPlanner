@@ -1,20 +1,19 @@
 <div class="container" style="margin-top: 25px;">
   <h4>Signup</h4>
-</div>
+</div><br>
 <div class="container">
   <form method="POST" action='/signup'>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
     </div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="name" class="form-control" name="name" id="name" placeholder="Enter name">
+      <input type="name" class="form-control" name="name" id="name" placeholder="Enter name" required>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" name="password" id="password" aria-describedby="passwordHelp" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+      <input type="password" class="form-control" name="password" id="password" aria-describedby="passwordHelp" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
       <small id="passwordHelp" class="form-text text-muted">Min. 8 characters with 1 number and 1 uppercase.</small>
     </div>
     <input class="btn btn-primary" id="submit" type="submit" value="Sign Up">
