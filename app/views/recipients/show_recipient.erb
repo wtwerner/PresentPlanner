@@ -2,7 +2,9 @@
     <h4><%= @recipient.name %></h4>
 </div>
 <div class="container">
-Relationship: <%= @recipient.relationship %><br>
+<% if @recipient.relationship != nil && @recipient.relationship != "" %>
+    Relationship: <%= @recipient.relationship %><br>
+<% end %>
 Birthday: <%= Date::MONTHNAMES[@recipient.birth_month] %> <%= @recipient.birth_day %><br><br>
 </div>
 <div class="container">
