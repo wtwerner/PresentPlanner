@@ -7,15 +7,15 @@
         <input type='hidden' id='hidden' name='_method' value='patch'>
     </div>
     <div class="container">
-        <label for="name">Name:</label>
+        <label for="name">Name</label>
         <input id='name' type='text' name='name' value='<%=@recipient.name%>'>
     </div>
     <div class="container">
-        <label for='relationship'>Relationship:</label>
+        <label for='relationship'>Relationship</label>
         <input id='relationship' type='text' name='relationship' value='<%=@recipient.relationship%>'>
     </div>
     <div class="container">
-        <label for='birth_month'>Birth Month:</label>
+        <label for='birth_month'>Birth Month</label>
         <select name='birth_month' id='birth_month'>
             <% 12.times do |i| %>
                 <option value="<%= i+1 %>" <%= 'selected' if @recipient.birth_month == i+1 %>><%= Date::MONTHNAMES[i+1] %></option>
@@ -23,7 +23,7 @@
         </select>
     </div>
     <div class="container">
-        <label for='birth_day'>Birth Day:</label>
+        <label for='birth_day'>Birth Day</label>
         <select name='birth_day' id='birth_day'>
             <% 31.times do |i| %>
                 <option value="<%= i+1 %>" <%= 'selected' if @recipient.birth_day == i+1 %>><%= i+1 %></option>
