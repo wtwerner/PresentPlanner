@@ -2,14 +2,14 @@
     <h4><%= @list.name %></h4>
 </div>
 <div class="container">
-    <p>For: <%= @list.recipient.name %><br>
-    Date: <%= @list.event_date %></p>
-</div>
+    For <a href="/recipients/<%= @list.recipient.id %>"><%= @list.recipient.name %></a><br>
+    <%= @list.event_date.strftime("%B %d, %Y") %>
+</div><br>
 <div class="container">
     <% if @list.gifts.empty? %>
         No gifts yet!
     <% else %>
-        <h5>Gift ideas:</h5>
+        <h5>Gift ideas</h5>
         <% @list.gifts.each do |gift| %>
            <a href='/gifts/<%= gift.id %>'><%= gift.name %></a><br>
         <% end %>
