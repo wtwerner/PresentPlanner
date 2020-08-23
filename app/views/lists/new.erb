@@ -4,11 +4,11 @@
 <div class="container">
     <form action='/lists' method="post">
         <div class="form-group">
-            <label for="name">List Name:</label>
+            <label for="name">List Name</label>
             <input class="form-control" id='name' type='text' name='name'>
         </div>
         <div class="form-group">
-            <label for='recipient'>Recipient:</label>
+            <label for='recipient'>Recipient</label>
             <select class="form-control" name='recipient' id='recipient'>
                 <% @recipients.each do |recipient| %>
                     <option value='<%= recipient.name %>'><%= recipient.name %></option>
@@ -16,7 +16,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="event_date">Event Date:</label>
+            <label for="event_date">Event Date</label>
             <input class="form-control" name='event_date' type='date' id='event_date'>
         </div><br>
         <div>
