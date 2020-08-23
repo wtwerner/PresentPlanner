@@ -14,5 +14,6 @@
     <div class="btn-group" role="group">
         <a class="btn btn-secondary" href="/gifts/<%=@gift.id%>/edit" role="button">Edit Gift</a>
         <button form="delete_gift" class="btn btn-secondary" id="submit" type="submit" value="Delete Gift" role="button">Delete Gift</button>
+        <a class="btn btn-secondary" href="/lists/<%= @gift.list.id %>" role="button">Return to List</a>
     </div>
 </div>

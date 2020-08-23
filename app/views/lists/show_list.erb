@@ -11,7 +11,7 @@
     <% else %>
         <h5>Gift ideas:</h5>
         <% @list.gifts.each do |gift| %>
-           <a href='/gifts/<%= gift.id %>'><%= gift.name %></a> 
+           <a href='/gifts/<%= gift.id %>'><%= gift.name %></a><br>
         <% end %>
     <% end %><br><br>
     <form type="hidden" id="delete_list" onsubmit="return confirm('Are you sure you want to delete <%= @list.name %>? This can not be undone.')" method="post" action="/lists/<%=@list.id%>/delete">
@@ -21,5 +21,6 @@
         <a class="btn btn-secondary" href="/gifts/new" role="button">New Gift</a>
         <a class="btn btn-secondary" href="/lists/<%=@list.id%>/edit" role="button">Edit List</a>
         <button form="delete_list" class="btn btn-secondary" id="submit" type="submit" value="Delete List" role="button">Delete List</button>
+        <a class="btn btn-secondary" href="/recipients/<%= @list.recipient.id %>" role="button">Return to Recipient</a>
     </div>
 </div>
