@@ -2,7 +2,7 @@ class RecipientsController < ApplicationController
 
     get '/recipients' do
         if Helpers.is_logged_in?(session)
-            @user = Helpers.current_user(session)
+            @recipients = Recipient.order("name ASC")
             erb :'recipients/recipients'
         else
             redirect to '/login'   
