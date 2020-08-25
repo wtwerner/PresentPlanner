@@ -4,9 +4,9 @@
 
 PresentPlanner is a Sinatra app that lets users catalog gift ideas in order to help them decide on a present when the time comes to purchase one.
 
-[Watch this video to understand the basic functionality](https://VIDEOLINK.com)
+[Watch this video to understand the basic functionality](https://youtu.be/kmSR2XO-CSU)
 
-[Blog Post about this app](https://BLOGLINK.com)
+[Blog Post about this app](https://medium.com/@wtwerner/presentplanner-b5c04a00c31)
 
 ## Built With
 
