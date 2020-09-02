@@ -41,10 +41,14 @@ class UsersController < ApplicationController
     end 
 
     get '/home' do
-      @user = Helpers.current_user(session)
-      @ordered_recipients = Recipient.order("name ASC")
-      @ordered_lists = List.order("event_date ASC")
-      erb :'/users/home'
+      if Helpers.is_logged_in?(session)
+        @user = Helpers.current_user(session)
+        @ordered_recipients = Recipient.order("name ASC")
+        @ordered_lists = List.order("event_date ASC")
+        erb :'/users/home'
+      else
+        redirect to '/'
+      end
     end
     
 end
