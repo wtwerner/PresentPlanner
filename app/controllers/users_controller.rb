@@ -9,11 +9,16 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-      user = User.new(:email => params[:email], :name => params[:name], :password => params[:password])
-      if user.save
-        redirect '/login'
+      if User.find_by(email: params[:email])
+        redirect '/signup'
       else
-        redirect '/failure'
+        user = User.new(:email => params[:email], :name => params[:name], :password => params[:password])
+        if user.save
+          session[:user_id] = user.id
+          erb :'/users/home'
+        else
+          redirect '/failure'
+        end
       end
     end
 
@@ -43,8 +48,8 @@ class UsersController < ApplicationController
     get '/home' do
       if Helpers.is_logged_in?(session)
         @user = Helpers.current_user(session)
-        @ordered_recipients = Recipient.order("name ASC")
-        @ordered_lists = List.order("event_date ASC")
+        @ordered_recipients = @user.recipients.order("name ASC")
+        @ordered_lists = @user.lists.order("event_date ASC")
         erb :'/users/home'
       else
         redirect to '/'
