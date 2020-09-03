@@ -22,8 +22,7 @@ class RecipientsController < ApplicationController
             if params[:name] == ""
                 redirect to '/recipients/new'
             else 
-                @recipient = Recipient.new(params)
-                @recipient.user = Helpers.current_user(session)
+                @recipient = Helpers.current_user(session).recipients.build(params)
                 if @recipient.save
                     redirect to "/recipients/#{@recipient.id}"
                 else 
