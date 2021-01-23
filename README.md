@@ -32,7 +32,6 @@ For interactive console
     $ bundle exec tux
 
 ## Future improvements
-* Verify password during signup
 * Add PostgreSQL support
 * Allow image uploads for gifts
 * Deploy to Heroku
